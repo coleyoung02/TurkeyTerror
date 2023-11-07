@@ -4,6 +4,11 @@ using UnityEngine;
 
 public abstract class State
 {
+    public enum AgentType
+    {
+        Chase,
+        Patrol
+    }
 
     protected List<GameObject> patrolPoints;
     protected Enemy enemy;
@@ -22,21 +27,24 @@ public abstract class State
 
     public virtual void SpotTurkey()
     {
+        SetNavmesh((int)AgentType.Chase);
         nextState = new Chase(enemy, patrolPoints, patrolIndex);
     }
 
-    public void SetNavmesh(/* navmesh param here */)
+    public void SetNavmesh(int agentID)
     {
-        //switch 
+        enemy.GetAgent().agentTypeID = agentID;
     }
 
     public virtual State OnUpdate()
     {
+        enemy.GetAgent().SetDestination(GetDestination());
         Vector3 v = enemy.gameObject.GetComponent<Rigidbody2D>().velocity;
         if (v.magnitude >= .02f) // basically if not in spinning state
         {
             enemy.gameObject.transform.rotation = Quaternion.LookRotation(v, Vector3.up);
         }
+        
         return nextState;
     }
 }
