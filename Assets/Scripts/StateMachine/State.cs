@@ -1,7 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public abstract class State
 {
 
+    protected List<GameObject> patrolPoints;
+    protected Enemy enemy;
+    protected State nextState;
+    protected int patrolIndex;
+
+    public State(Enemy enemy, List<GameObject> patrolPoints, int patrolIndex)
+    {
+        this.enemy = enemy;
+        this.patrolPoints = patrolPoints;
+        this.patrolIndex = patrolIndex;
+        nextState = this;
+    }
+
+    public abstract Vector3 GetDestination();
+
+    public virtual void SpotTurkey()
+    {
+        nextState = new Chase(enemy, patrolPoints, patrolIndex);
+    }
+
+    public void SetNavmesh(/* navmesh param here */)
+    {
+        //switch 
+    }
+
+    public virtual State OnUpdate()
+    {
+        Vector3 v = enemy.gameObject.GetComponent<Rigidbody2D>().velocity;
+        if (v.magnitude >= .02f) // basically if not in spinning state
+        {
+            enemy.gameObject.transform.rotation = Quaternion.LookRotation(v, Vector3.up);
+        }
+        return nextState;
+    }
 }
