@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -33,5 +34,13 @@ public class PlayerMovement : MonoBehaviour
             movementDir += new Vector2(1, 0);
         }
         rb.velocity = movementDir.normalized * speed;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Enemy"))
+        {
+            SceneManager.LoadScene("LoseScene");
+        }
     }
 }
