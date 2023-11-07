@@ -20,7 +20,7 @@ public class Spin : State
     {
         float frameAngle = Time.deltaTime * spinRate;
         accumulatedSpin += frameAngle;
-        enemy.gameObject.transform.Rotate(0, frameAngle, 0, Space.Self);
+        enemy.gameObject.transform.Rotate(0, 0, frameAngle, Space.Self);
         if (accumulatedSpin >= 360f)
         {
             nextState = new Patrol(enemy, patrolPoints, patrolIndex);

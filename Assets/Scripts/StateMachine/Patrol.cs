@@ -18,7 +18,7 @@ public class Patrol : State
     public override State OnUpdate()
     {
         Vector2 v = enemy.gameObject.transform.position - patrolPoints[patrolIndex].transform.position;
-        if ((v).magnitude < .01f)
+        if (v.magnitude < .01f)
         {
             nextState = new Spin(enemy, patrolPoints, (patrolIndex + 1) % patrolPoints.Count);
         }
