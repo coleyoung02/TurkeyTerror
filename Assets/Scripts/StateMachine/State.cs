@@ -39,13 +39,6 @@ public abstract class State
     public virtual State OnUpdate()
     {
         enemy.GetAgent().SetDestination(GetDestination());
-        Vector3 v = enemy.gameObject.GetComponent<Rigidbody2D>().velocity;
-        Debug.Log(v);
-        if (v.magnitude >= .02f) // basically if not in spinning state
-        {
-            Debug.Log(Quaternion.LookRotation(v, Vector3.up));
-            enemy.gameObject.transform.rotation = Quaternion.LookRotation(v, Vector3.up);
-        }
         
         return nextState;
     }
