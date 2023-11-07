@@ -9,7 +9,7 @@ public class AgroCone : MonoBehaviour
     {
         if(collision.gameObject.tag == "Turkey")
         {
-            
+            enemy.SpotTurkey();
         }
     }
 }

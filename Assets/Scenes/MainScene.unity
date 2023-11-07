@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turkey
       objectReference: {fileID: 0}
+    - target: {fileID: 1308229020345921212, guid: 98d3a8751aaa3ff4fb3d53747519dad4, type: 3}
+      propertyPath: m_TagString
+      value: Turkey
+      objectReference: {fileID: 0}
     - target: {fileID: 1366592246399109133, guid: 98d3a8751aaa3ff4fb3d53747519dad4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

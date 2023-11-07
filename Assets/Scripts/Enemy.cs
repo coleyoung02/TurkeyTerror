@@ -8,11 +8,14 @@ public class Enemy : MonoBehaviour
     private State state;
     private GameObject turkey;
     private NavMeshAgent agent;
+    [SerializeField]
+    private List<GameObject> patrolPoints;
 
     void Start()
     {
         turkey = FindAnyObjectByType<PlayerMovement>().gameObject;
         agent = GetComponent<NavMeshAgent>();
+        state = new Patrol(this, patrolPoints, 0);
     }
 
     public void SpotTurkey()
