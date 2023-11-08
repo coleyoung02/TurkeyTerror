@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 1;
+    [SerializeField] private AudioSource source;
+
     private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
@@ -40,7 +42,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Enemy"))
         {
-            SceneManager.LoadScene("LoseScene");
+            source.Play();
+            Time.timeScale = 0;
+            StartCoroutine(lose());
         }
+    }
+
+    IEnumerator lose()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        SceneManager.LoadSceneAsync("LoseScene");
     }
 }
