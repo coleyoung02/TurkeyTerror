@@ -4,27 +4,19 @@ using UnityEngine;
 
 public class Spin : State
 {
+    // TODO: spin the enemy a full 360 degrees, and then make the right state change
+    // also, think about what the destination should be for the spin state...
+
+    // the Transform.Rotate() function may be useful to actually do the rotation https://docs.unity3d.com/ScriptReference/Transform.Rotate.html
+    
     private static float spinRate = 60f; // spin rate in degrees per second
-    private float accumulatedSpin; // degrees spun around y axis so far 
+
     public Spin(Enemy enemy, List<GameObject> patrolPoints, int patrolIndex) : base(enemy, patrolPoints, patrolIndex)
     {
-        accumulatedSpin = enemy.gameObject.transform.rotation.y;
     }
 
     public override Vector3 GetDestination()
     {
-        return enemy.transform.position;
-    }
-
-    public override State OnUpdate()
-    {
-        float frameAngle = Time.deltaTime * spinRate;
-        accumulatedSpin += frameAngle;
-        enemy.gameObject.transform.Rotate(0, 0, frameAngle, Space.Self);
-        if (accumulatedSpin >= 360f)
-        {
-            nextState = new Patrol(enemy, patrolPoints, patrolIndex);
-        }
-        return base.OnUpdate();
+        throw new System.NotImplementedException();
     }
 }

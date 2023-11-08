@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class State
 {
+    // TODO: finish implementing the SpotTurkey function on line 30
+
     public enum AgentType
     {
         Chase,
@@ -28,7 +30,7 @@ public abstract class State
     public virtual void SpotTurkey()
     {
         SetNavmesh((int)AgentType.Chase);
-        nextState = new Chase(enemy, patrolPoints, patrolIndex);
+        // TODO: set the next state to the chase state (hint, assign to the next state variable)
     }
 
     public void SetNavmesh(int agentID)
@@ -38,6 +40,8 @@ public abstract class State
 
     public virtual State OnUpdate()
     {
+        //setting the desitination every frame may not be optimal for 
+        //every state that we have, but it does make the code more uniform for each state
         enemy.GetAgent().SetDestination(GetDestination());
         
         return nextState;

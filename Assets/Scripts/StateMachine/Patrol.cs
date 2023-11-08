@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Patrol : State
 {
+    // TODO: implement the get destination function
+    // make sure to get the right destination since there are multiple patrol points.
+    // Also, figure out how to switch to the right state when you reach that destination
 
     public Patrol(Enemy enemy, List<GameObject> patrolPoints, int patrolIndex) : base (enemy, patrolPoints, patrolIndex)
     {
@@ -11,17 +14,6 @@ public class Patrol : State
 
     public override Vector3 GetDestination()
     {
-        return patrolPoints[patrolIndex].transform.position;
-    }
-
-
-    public override State OnUpdate()
-    {
-        Vector2 v = enemy.gameObject.transform.position - patrolPoints[patrolIndex].transform.position;
-        if (v.magnitude < .01f)
-        {
-            nextState = new Spin(enemy, patrolPoints, (patrolIndex + 1) % patrolPoints.Count);
-        }
-        return base.OnUpdate();
+        throw new System.NotImplementedException();
     }
 }
