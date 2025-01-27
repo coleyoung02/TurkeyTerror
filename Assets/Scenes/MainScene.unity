@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -151,6 +150,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -10
       objectReference: {fileID: 0}
+    - target: {fileID: 3619026822493879067, guid: 98d3a8751aaa3ff4fb3d53747519dad4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c515ad78c0762c3449b275816493c9a4, type: 3}
     - target: {fileID: 8486678912397642690, guid: 98d3a8751aaa3ff4fb3d53747519dad4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.46
@@ -208,6 +211,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy3
       objectReference: {fileID: 0}
+    - target: {fileID: 3604507289726317349, guid: 189b7343e1ef7734f95bb92ffe55a5fb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d2584895c1de630458fe9ec5e49737f7, type: 3}
     - target: {fileID: 7241556106201823406, guid: 189b7343e1ef7734f95bb92ffe55a5fb, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
@@ -6085,6 +6092,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy2
       objectReference: {fileID: 0}
+    - target: {fileID: 3604507289726317349, guid: 189b7343e1ef7734f95bb92ffe55a5fb, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604507289726317349, guid: 189b7343e1ef7734f95bb92ffe55a5fb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 070c3b9ca8e407646a2dbb63be89bee8, type: 3}
     - target: {fileID: 7241556106201823406, guid: 189b7343e1ef7734f95bb92ffe55a5fb, type: 3}
       propertyPath: patrolPoints.Array.size
       value: 2
